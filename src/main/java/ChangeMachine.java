@@ -68,14 +68,19 @@ public class ChangeMachine {
   }
 
   public String makeChange(Float totalCash){
-    int quarterChangeTotal = makeQuarterChange(totalCash);
-    float updatedCashTotal = totalCash - (quarterChangeTotal * 0.25f);
-    int dimeChangeTotal = makeDimeChange(updatedCashTotal);
-    updatedCashTotal -= (dimeChangeTotal * 0.10f);
-    int nickelChangeTotal = makeNickelChange(updatedCashTotal);
-    updatedCashTotal -= (nickelChangeTotal * 0.05f);
-    int pennyChangeTotal = makePennyChange(updatedCashTotal);
-    return String.format("Quarters: %d, Dimes: %d, Nickels: %d, Pennies: %d", quarterChangeTotal, dimeChangeTotal, nickelChangeTotal, pennyChangeTotal);
+    if (totalCash <= 8.20f) {
+      int quarterChangeTotal = makeQuarterChange(totalCash);
+      float updatedCashTotal = totalCash - (quarterChangeTotal * 0.25f);
+      int dimeChangeTotal = makeDimeChange(updatedCashTotal);
+      updatedCashTotal -= (dimeChangeTotal * 0.10f);
+      int nickelChangeTotal = makeNickelChange(updatedCashTotal);
+      updatedCashTotal -= (nickelChangeTotal * 0.05f);
+      int pennyChangeTotal = makePennyChange(updatedCashTotal);
+      return String.format("Quarters: %d, Dimes: %d, Nickels: %d, Pennies: %d", quarterChangeTotal, dimeChangeTotal, nickelChangeTotal, pennyChangeTotal);
+    } else {
+      String error = "Oops! We don't have enough coins to make change for that amount. The most we can make change for is $8.20.";
+      return error;
+    }
   }
 
 }

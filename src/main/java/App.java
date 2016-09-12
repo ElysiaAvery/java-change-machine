@@ -18,9 +18,9 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       String totalCash = request.queryParams("total-cash");
       Float change = Float.parseFloat(totalCash);
-      ChangeMachine changeMaker = new ChangeMachine();
-      String newChange = changeMaker.makeChange(change);
-      model.put("result", newChange);
+      ChangeMachine newChangeMachine = new ChangeMachine();
+      String outputChange = newChangeMachine.makeChange(change);
+      model.put("result", outputChange);
       model.put("template", "templates/printout.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
