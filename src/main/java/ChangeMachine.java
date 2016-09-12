@@ -82,5 +82,4 @@ public class ChangeMachine {
       return error;
     }
   }
-
 }
