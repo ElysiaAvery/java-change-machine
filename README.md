@@ -11,7 +11,7 @@ _This is a program to simulate hangman, the childhood favorite._
 
 * _Clone this repository to your desktop_
 * _In terminal, navigate to java-change-machine: `cd java-change-machine` and type: `gradle compileJava`_
-* _In terminal, navigate to /hangman/build/classes/main and type: `java App`_
+* _In terminal, navigate to /java-change-machine/build/classes/main and type: `java App`_
 
 ## Known Bugs
 
